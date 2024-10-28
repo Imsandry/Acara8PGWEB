@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <title>PGWEB Acara 8 | Koneksi PHP dengan Basis Data 2</title>
+<body>
+<h2>Form Input</h2>
+
+<form action="input.php" onsubmit="return validateForm()" method="post">
+ <label for="kecamatan">Kecamatan:</label><br>
+ <input type="text" id="kecamatan" name="kecamatan" value=""><br><br>
+ <label for="longitude">Longitude:</label><br>
+ <input type="text" id="longitude" name="longitude" value=""><br><br>
+ <label for="latitude">Latitude:</label><br>
+ <input type="text" id="latitude" name="latitude" value=""><br><br>
+ <label for="luas">Luas:</label><br>
+ <input type="text" id="luas" name="luas" value=""><br><br>
+ <label for="jumlah_penduduk">Jumlah Penduduk:</label><br>
+ <input type="text" id="jumlah_penduduk" name="jumlah_penduduk" value=""><br><br>
+ <input type="submit" value="Submit">
+</form>
+<p id="informasi"></p>
+
+<script>
+function validateForm() {
+    let luas = document.getElementById("luas").value;
+    let jumlahPenduduk = document.getElementById("jumlah_penduduk").value;
+    let text = "";
+
+    if (isNaN(luas) || luas < 1) {
+        text = "Data luas harus angka dan tidak boleh bernilai negatif.";
+        document.getElementById("informasi").innerHTML = text;
+        return false;
+    }
+    if (isNaN(jumlahPenduduk) || jumlahPenduduk < 1) {
+        text = "Jumlah penduduk harus angka dan tidak boleh bernilai negatif.";
+        document.getElementById("informasi").innerHTML = text;
+        return false;
+    }
+    return true;
+}
+</script>
+
+</body>
+</html>
